@@ -8,7 +8,7 @@ new Vue({
 		windSpeed: '',
 		pressure: '',
 		description: '',
-		image: ''
+		image: '10n'
 	},
 	
 
@@ -28,12 +28,12 @@ new Vue({
         .then(response => {
 					var data=response.data;
 					console.log(data);
-					this.temperature=data.main.temp+'C°';
+					this.temperature=data.main.temp+' C°';
 					this.humidity='humidity '+data.main.humidity+' %';
 					this.windSpeed='windSpeed'+data.wind.speed+' m/h';
 					this.pressure='pressure '+data.main.pressure+' hpa';
 					this.description=data.weather[0].description;
-					this.image=data.weather[0].icon;				
+					this.image='http://openweathermap.org/img/w/'+data.weather[0].icon+'.png';				
 
         })
         .catch(error => {
