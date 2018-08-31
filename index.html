@@ -8,7 +8,7 @@
 
 </head>
 <body>
-	<div class="cotainer jumbotron col-md-4 offset-md-4" id="app">
+	<div class="cotainer jumbotron col-md-4 offset-md-4 border border-primary" id="app">
 			
 			<div class="col-md-8 offset-md-2 blockquote text-center ">
 				<p>
@@ -32,8 +32,7 @@
 					<div class="panel panel-dafault">
 						<div class="panel-body blockquote">
 							<p>
-								<h4  v-show="city" v-show="country" >{{ city }}{{country}}</h4>
-								<!-- <h4 v-show="country">{{ country }}</h4>								 -->
+								<h4  v-show="city" v-show="country" >{{ city }}{{country}}</h4>																
 								<p>
 									<span class="text-caption" v-show="temperature">{{ temperature }}</span>
 								</p>
@@ -50,9 +49,6 @@
 										<span class="text-caption" v-show="description">{{ description }}</span>
 									<img v-bind:src="image" alt="">
 								</p>
-								
-								
-								
 							</p>
 						</div>
 					</div>
