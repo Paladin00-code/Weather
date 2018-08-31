@@ -1,31 +1,46 @@
 new Vue({
 	el: '#app',
 	data: {
-		city: 'London',
-	    summary: 'My Current Weather',
-	    temperature: '',
-	    humidity: '',
-	    windSpeed: '',
-	    image: ''
-
+		city: 'York',
+		summary: 'My Current Weather for BWT',
+		temperature: '',
+		humidity: '',
+		windSpeed: '',
+		pressure: '',
+		description: '',
+		image: ''
 	},
-	methods: {
-		getData: function() {
-			var self=this;
-			var urlweather = 'https://samples.openweathermap.org/data/2.5/weather?q='+self.city+'&appid=b6907d289e10d714a6e88b30761fae22';
+	
 
-			$.get(urlweather,
-				function(response) {
-					var obj = response.content.toJSON();
-					this.summary = obj.currently.summary;
-					this.humidity = 'humidity: '+obj.currently.humidity.toString()+'%';
-					this.windSpeed = 'wind: '+obj.currently.windSpeed.toString()+' mph';
-					this.temperature = Math.round(obj.currently.temperature).toString() + '°';
-				}, "json"
-			);	
-			
-			
-			
-		}
-	}
+	methods: {
+    getData: function() {
+
+      this.loading = true;
+
+      axios
+        .get("https://api.openweathermap.org/data/2.5/weather", {
+          params: {
+            q: this.city,
+            units: "metric",
+            appid: "4060d7e8ac95a19d8f6ccf33d8466024"
+          }
+        })
+        .then(response => {
+					var data=response.data;
+					console.log(data);
+					this.temperature=data.main.temp+'C°';
+					this.humidity='humidity '+data.main.humidity+' %';
+					this.windSpeed='windSpeed'+data.wind.speed+' m/h';
+					this.pressure='pressure '+data.main.pressure+' hpa';
+					this.description=data.weather[0].description;
+					this.image=data.weather[0].icon;				
+
+        })
+        .catch(error => {
+          console.log(error);
+          this.errored = true;
+        })
+        .finally(() => (this.loading = false));
+    }
+  }
 });

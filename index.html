@@ -20,10 +20,22 @@
 							<p>
 								<h4  v-show="city">{{ city }}</h4>
 								<p>
+									<span class="text-caption" v-show="summary">{{ summary }}</span>
+								</p>
+								<p>
 									<span class="text-caption" v-show="temperature">{{ temperature }}</span>
 								</p>
 								<p>
 									<span class="text-caption" v-show="humidity">{{ humidity }}</span>
+								</p>
+								<p>
+									<span class="text-caption" v-show="windSpeed">{{ windSpeed }}</span>
+								</p>
+								<p>
+									<span class="text-caption" v-show="pressure">{{ pressure }}</span>
+								</p>
+								<p>
+									<span class="text-caption" v-show="description">{{ description }}</span>
 								</p>
 							</p>
 						</div>
@@ -36,6 +48,7 @@
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 	<script src="js/script.js"></script>
 	<!-- <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script> -->
 </body>
