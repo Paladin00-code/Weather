@@ -1,22 +1,17 @@
 new Vue({
 	el: '#app',
 	data: {
-		city: 'York',
-		summary: 'My Current Weather for BWT',
+		city: '',
+		summary: 'My WeatherApp for BWT',
 		temperature: '',
 		humidity: '',
 		windSpeed: '',
 		pressure: '',
 		description: '',
-		image: '10n'
+		image: ''
 	},
-	
-
 	methods: {
     getData: function() {
-
-      this.loading = true;
-
       axios
         .get("https://api.openweathermap.org/data/2.5/weather", {
           params: {
@@ -26,15 +21,13 @@ new Vue({
           }
         })
         .then(response => {
-					var data=response.data;
-					console.log(data);
-					this.temperature=data.main.temp+' C°';
+					var data=response.data;									
+					this.temperature='temperature '+data.main.temp+' C°';
 					this.humidity='humidity '+data.main.humidity+' %';
 					this.windSpeed='windSpeed'+data.wind.speed+' m/h';
 					this.pressure='pressure '+data.main.pressure+' hpa';
-					this.description=data.weather[0].description;
-					this.image='http://openweathermap.org/img/w/'+data.weather[0].icon+'.png';				
-
+					this.description=data.weather[0].description;							
+					this.image= 'http://openweathermap.org/img/w/'+data.weather[0].icon+'.png';
         })
         .catch(error => {
           console.log(error);
