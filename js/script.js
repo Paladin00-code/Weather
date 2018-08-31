@@ -2,6 +2,7 @@ new Vue({
 	el: '#app',
 	data: {
 		city: '',
+		country: '',
 		summary: 'My WeatherApp for BWT',
 		temperature: '',
 		humidity: '',
@@ -21,7 +22,9 @@ new Vue({
           }
         })
         .then(response => {
-					var data=response.data;									
+					var data=response.data;	
+					console.log(data);				
+					this.country=' ('+data.sys.country+')';							
 					this.temperature='temperature '+data.main.temp+' C°';
 					this.humidity='humidity '+data.main.humidity+' %';
 					this.windSpeed='windSpeed'+data.wind.speed+' m/h';

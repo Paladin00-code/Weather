@@ -32,7 +32,8 @@
 					<div class="panel panel-dafault">
 						<div class="panel-body blockquote">
 							<p>
-								<h4  v-show="city">{{ city }}</h4>								
+								<h4  v-show="city" v-show="country" >{{ city }}{{country}}</h4>
+								<!-- <h4 v-show="country">{{ country }}</h4>								 -->
 								<p>
 									<span class="text-caption" v-show="temperature">{{ temperature }}</span>
 								</p>
