@@ -8,16 +8,13 @@
 
 </head>
 <body>
-	<div class="cotainer jumbotron col-md-4 offset-md-4 border border-primary" id="app">
-			
+	<div class="cotainer jumbotron col-md-4 offset-md-4 border border-primary" id="app">			
 			<div class="col-md-8 offset-md-2 blockquote text-center ">
 				<p>
 					<span class="text-caption" v-show="summary">{{ summary }}</span>
 				</p>
 			</div>
-
-		<div class="row">
-			
+		<div class="row">			
 			<div class="col-md-7 offset-md-1 ">				
 				<input type="text" class="form-control" v-model="city" placeholder="Search sity">				
 			</div>
@@ -28,7 +25,7 @@
 		<div class="row">
 			<p></p>
 		</div>
-			<div v-show="city" class="text-center list-group-item list-group-item-success col-md-8 offset-md-2">
+			<div v-show="city" class="text-center list-group-item list-group-item-success col-md-8 offset-md-2 border-warning">
 					<div class="panel panel-dafault">
 						<div class="panel-body blockquote">
 							<p>
@@ -52,8 +49,7 @@
 							</p>
 						</div>
 					</div>
-				</div>
-		
+				</div>		
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 	<script src="js/script.js"></script>
