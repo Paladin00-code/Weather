@@ -9,19 +9,24 @@
 </head>
 <body>
 	<div class="cotainer" id="app">
+			
+			<div class="col-md-3 offset-md-4">
+				<p>
+					<span class="text-caption" v-show="summary">{{ summary }}</span>
+				</p>
+			</div>
 
 		<div class="row">
 			<div class="col-md-2"></div>
 			<div class="col-md-6">
+				
 				<input type="text" class="form-control" v-model="city" placeholder="Search sity">
-				<div class="col-md-6">
+				<div class="col-md-6 offset-md-5">
 					<div class="panel panel-dafault">
 						<div class="panel-body">
 							<p>
 								<h4  v-show="city">{{ city }}</h4>
-								<p>
-									<span class="text-caption" v-show="summary">{{ summary }}</span>
-								</p>
+								
 								<p>
 									<span class="text-caption" v-show="temperature">{{ temperature }}</span>
 								</p>
@@ -37,6 +42,7 @@
 								<p>
 									<span class="text-caption" v-show="description">{{ description }}</span>
 								</p>
+								<div class="icon"></div>
 							</p>
 						</div>
 					</div>
